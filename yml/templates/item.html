@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+	<html lang="en"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Listing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+
+	<link type="text/css" rel="stylesheet" href="{% static "css/demo.css" %}">
+
+	<link rel="stylesheet" href="{% static "css/animate.css" %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static "css/icomoon.css" %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static "css/superfish.css" %}">
+
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+
+	<!-- Modernizr JS -->
+	
+	
+	<script src="{% static "js/jquery.min.js" %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery-1.12.0.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.flexText.js" %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+	<!-- Stellar -->
+
+	<script src="{% static "js/jquery.stellar.min.js" %}"></script>
+	<!-- Superfish -->
+
+
+	<script src="{% static "js/superfish.js" %}"></script>
+	<script src="{% static "js/hoverIntent.js" %}"></script>
+
+	<script src="{% static "js/main.js" %}"></script>
+	
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo">{{ spotname }}</h1>
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			
+		</div>
+		
+		
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<!-- 这里的1要改成id -->
+			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{ imgurl }});">
+				<div class="desc animate-box">
+					<!-- 改为根据id获取的-->
+					<h2>{{ spotname }}</h2>
+					<audio src={{ musicurl }} controls="controls">    您的浏览器不支持 audio 标签。</audio>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<p class="p-responsive">{{ text }}</p>
+		</div>
+
+		<div class="praise">
+			<span id="praise"><img src="{% static "img/zan.png" %}" id="praise-img" /></span>
+			<span id="praise-txt">{{ zan }}</span>
+			<span id="add-num"><em>+1</em></span>
+		</div>
+
+
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<div class="commentAll">
+								<div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4Ny81NTU2">
+									<script type="text/javascript">
+										(function(d, s) {
+											var j, e = d.getElementsByTagName(s)[0];
+
+											if (typeof LivereTower === 'function') { return; }
+
+											j = d.createElement(s);
+											j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+											j.async = true;
+
+											e.parentNode.insertBefore(j, e);
+										})(document, 'script');
+											</script>
+								<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+								</div>
+								<p>Copyright &copy; 2017,yml.All rights reserved.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+        </div>
+	</div>
+	<!-- END fh5co-page -->
+
+
+
+
+	<!-- END fh5co-wrapper -->
+
+	<!-- jQuery -->
+	<script>
+	/* @author:Romey
+	 * 动态点赞
+	 * 此效果包含css3，部分浏览器不兼容（如：IE10以下的版本）
+	*/
+	$(function(){
+		$("#praise").click(function(){
+			var praise_img = $("#praise-img");
+			var text_box = $("#add-num");
+			var praise_txt = $("#praise-txt");
+			var num=parseInt(praise_txt.text());
+			if(praise_img.attr("src") == ("{% static 'img/yizan.png' %}")){
+				$(this).html("<img src='/static/img/zan.png' id='praise-img' class='animation' />");
+				praise_txt.removeClass("hover");
+				text_box.show().html("<em class='add-animation'>-1</em>");
+				$(".add-animation").removeClass("hover");
+				num -=1;
+				praise_txt.text(num);
+				var url = "http://13.65.151.139:8000/delzan/"+ {{ result }}+"/";  
+				var xmlhttp;
+				if (window.XMLHttpRequest)
+				{// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{// code for IE6, IE5
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+						document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET",url,true);
+				xmlhttp.send();
+			}else
+			{
+				$(this).html("<img src='/static/img/yizan.png' id='praise-img' class='animation' />");
+				praise_txt.addClass("hover");
+				text_box.show().html("<em class='add-animation'>+1</em>");
+				$(".add-animation").addClass("hover");
+				num +=1;
+				praise_txt.text(num);
+				var url = "http://13.65.151.139:8000/addzan/"+ {{ result }}+"/";  
+				var xmlhttp;
+				if (window.XMLHttpRequest)
+				{// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{// code for IE6, IE5
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+						document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET",url,true);
+				xmlhttp.send();
+			}
+		});
+	})
+   </script>
+
+   
+
+   <!--textarea高度自适应-->
+	<script>
+		$(function () {
+			$('.content').flexText();
+		});
+	</script>
+	<!--textarea限制字数-->
+	<script type="text/javascript">
+		function keyUP(t){
+			var len = $(t).val().length;
+			if(len > 139){
+				$(t).val($(t).val().substring(0,140));
+			}
+		}
+	</script>
+	<!--点击评论创建评论条-->
+	<script type="text/javascript">
+		$('.commentAll').on('click','.plBtn',function(){
+			var myDate = new Date();
+			//获取当前年
+			var year=myDate.getFullYear();
+			//获取当前月
+			var month=myDate.getMonth()+1;
+			//获取当前日
+			var date=myDate.getDate();
+			var h=myDate.getHours();       //获取当前小时数(0-23)
+			var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+			if(m<10) m = '0' + m;
+			var s=myDate.getSeconds();
+			if(s<10) s = '0' + s;
+			var now=year+'-'+month+"-"+date+" "+h+':'+m+":"+s;
+			console.log(now);
+			//获取输入内容
+			var oSize = $(this).siblings('.flex-text-wrap').find('.comment-input').val();
+			console.log(oSize);
+			//动态创建评论模块
+			oHtml = '<div class="comment-show-con clearfix"><div class="comment-show-con-img pull-left"><img src="/static/img/header-img-comment_03.png" alt=""></div> <div class="comment-show-con-list pull-left clearfix"><div class="pl-text clearfix"> <a href="#" class="comment-size-name">David Beckham : </a> <span class="my-pl-con">&nbsp;'+ oSize +'</span> </div> <div class="date-dz"> <span class="date-dz-left pull-left comment-time">'+now+'</span> <div class="date-dz-right pull-right comment-pl-block"><a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> <span class="pull-left date-dz-line">|</span> </div> </div><div class="hf-list-con"></div></div> </div>';
+			if(oSize.replace(/(^\s*)|(\s*$)/g, "") != ''){
+				$(this).parents('.reviewArea ').siblings('.comment-show').prepend(oHtml);
+				$(this).siblings('.flex-text-wrap').find('.comment-input').prop('value','').siblings('pre').find('span').text('');
+			}
+		});
+	</script>
+	<!--点击回复动态创建回复块-->
+	<script type="text/javascript">
+		$('.comment-show').on('click','.pl-hf',function(){
+			//获取回复人的名字
+			var fhName = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+			//回复@
+			var fhN = '回复@'+fhName;
+			//var oInput = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.hf-con');
+			var fhHtml = '<div class="hf-con pull-left"> <textarea class="content comment-input hf-input" placeholder="" onkeyup="keyUP(this)"></textarea> <a href="javascript:;" class="hf-pl">评论</a></div>';
+			//显示回复
+			if($(this).is('.hf-con-block')){
+				$(this).parents('.date-dz-right').parents('.date-dz').append(fhHtml);
+				$(this).removeClass('hf-con-block');
+				$('.content').flexText();
+				$(this).parents('.date-dz-right').siblings('.hf-con').find('.pre').css('padding','6px 15px');
+				//console.log($(this).parents('.date-dz-right').siblings('.hf-con').find('.pre'))
+				//input框自动聚焦
+				$(this).parents('.date-dz-right').siblings('.hf-con').find('.hf-input').val('').focus().val(fhN);
+			}else {
+				$(this).addClass('hf-con-block');
+				$(this).parents('.date-dz-right').siblings('.hf-con').remove();
+			}
+		});
+	</script>
+	<!--评论回复块创建-->
+	<script type="text/javascript">
+		$('.comment-show').on('click','.hf-pl',function(){
+			var oThis = $(this);
+			var myDate = new Date();
+			//获取当前年
+			var year=myDate.getFullYear();
+			//获取当前月
+			var month=myDate.getMonth()+1;
+			//获取当前日
+			var date=myDate.getDate();
+			var h=myDate.getHours();       //获取当前小时数(0-23)
+			var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+			if(m<10) m = '0' + m;
+			var s=myDate.getSeconds();
+			if(s<10) s = '0' + s;
+			var now=year+'-'+month+"-"+date+" "+h+':'+m+":"+s;
+			//获取输入内容
+			var oHfVal = $(this).siblings('.flex-text-wrap').find('.hf-input').val();
+			console.log(oHfVal)
+			var oHfName = $(this).parents('.hf-con').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+			var oAllVal = '回复@'+oHfName;
+			if(oHfVal.replace(/^ +| +$/g,'') == '' || oHfVal == oAllVal){
+
+			}else {
+				$.getJSON("{% static 'json/pl.json' %}",function(data){
+					var oAt = '';
+					var oHf = '';
+					$.each(data,function(n,v){
+						delete v.hfContent;
+						delete v.atName;
+						var arr;
+						var ohfNameArr;
+						if(oHfVal.indexOf("@") == -1){
+							data['atName'] = '';
+							data['hfContent'] = oHfVal;
+						}else {
+							arr = oHfVal.split(':');
+							ohfNameArr = arr[0].split('@');
+							data['hfContent'] = arr[1];
+							data['atName'] = ohfNameArr[1];
+						}
+
+						if(data.atName == ''){
+							oAt = data.hfContent;
+						}else {
+							oAt = '回复<a href="#" class="atName">@'+data.atName+'</a> : '+data.hfContent;
+						}
+						oHf = data.hfName;
+					});
+
+					var oHtml = '<div class="all-pl-con"><div class="pl-text hfpl-text clearfix"><a href="#" class="comment-size-name">我的名字 : </a><span class="my-pl-con">'+oAt+'</span></div><div class="date-dz"> <span class="date-dz-left pull-left comment-time">'+now+'</span> <div class="date-dz-right pull-right comment-pl-block"> <a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> <span class="pull-left date-dz-line">|</span> </div> </div></div>';
+					oThis.parents('.hf-con').parents('.comment-show-con-list').find('.hf-list-con').css('display','block').prepend(oHtml) && oThis.parents('.hf-con').siblings('.date-dz-right').find('.pl-hf').addClass('hf-con-block') && oThis.parents('.hf-con').remove();
+				});
+			}
+		});
+	</script>
+	<!--删除评论块-->
+	<script type="text/javascript">
+		$('.commentAll').on('click','.removeBlock',function(){
+			var oT = $(this).parents('.date-dz-right').parents('.date-dz').parents('.all-pl-con');
+			if(oT.siblings('.all-pl-con').length >= 1){
+				oT.remove();
+			}else {
+				$(this).parents('.date-dz-right').parents('.date-dz').parents('.all-pl-con').parents('.hf-list-con').css('display','none')
+				oT.remove();
+			}
+			$(this).parents('.date-dz-right').parents('.date-dz').parents('.comment-show-con-list').parents('.comment-show-con').remove();
+
+		})
+	</script>
+	<!--点赞-->
+	<script type="text/javascript">
+		$('.comment-show').on('click','.date-dz-z',function(){
+			var zNum = $(this).find('.z-num').html();
+			if($(this).is('.date-dz-z-click')){
+				zNum--;
+				$(this).removeClass('date-dz-z-click red');
+				$(this).find('.z-num').html(zNum);
+				$(this).find('.date-dz-z-click-red').removeClass('red');
+			}else {
+				zNum++;
+				$(this).addClass('date-dz-z-click');
+				$(this).find('.z-num').html(zNum);
+				$(this).find('.date-dz-z-click-red').addClass('red');
+			}
+		})
+	</script>
+	</body>
+</html>
+
