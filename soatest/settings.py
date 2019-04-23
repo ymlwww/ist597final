@@ -25,7 +25,7 @@ SECRET_KEY = '980ct_c=s3xf5r_=$!77*3-lwu$66@3cez2!vbgcog&8p_su4m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.65.151.139','127.0.0.1']
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 
@@ -131,4 +131,4 @@ STATICFILES_FINDERS = (
 )
 
 MEDIA_ROOT = os.path.join(STATIC_ROOT, "uploads")
-MEDIA_URL = '/static/uploads/'
+MEDIA_URL = '/uploads/'
