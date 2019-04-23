@@ -8,6 +8,8 @@
 
 3. Click application and you can transform your own image by SRCNN and EDSR.
 
+4. You may need to clear cache in chromes to see the result after waiting.
+
 ## Source code implement algorithms
 
 Codes are included in the algorithms. <https://github.com/ymlwww/ist597final>
