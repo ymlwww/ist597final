@@ -4,8 +4,6 @@ import argparse
 
 from torch.utils.data import DataLoader
 
-from DBPN.solver import DBPNTrainer
-from DRCN.solver import DRCNTrainer
 from EDSR.solver import EDSRTrainer
 from FSRCNN.solver import FSRCNNTrainer
 from SRCNN.solver import SRCNNTrainer
